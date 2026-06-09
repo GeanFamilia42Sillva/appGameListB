@@ -1,7 +1,9 @@
 import { View, Text } from 'react-native' 
 import 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native'
-import { createDrawerNavigator } from '@react-navigation/drawer'
+//import { createTabNavigator } from '@react-navigation/Tab'
+import { createBottomNavigator } from '@react-navigation/bottom-tabs'
+
 
 const HomeScreen = () => {
   return(
@@ -18,23 +20,23 @@ const SobreScreen = () => {
     </View>
   )
 }
-const Drawer = createDrawerNavigator()
+const Tab = createTabNavigator()
 
 export default function App(){
   return(
     <NavigationContainer>
-      <Drawer.Navigator 
+      <Tab.Navigator 
         screenOptions={{
           headerStyle: {
             backgroundColor: '#1d3557'
           },
           headerTintColor: '#fff',
-          drawerActiveTintColor: '#e66946'
+          TabActiveTintColor: '#e66946'
         }}
       >
-        <Drawer.Screen name="Home" component={HomeScreen}/>
-        <Drawer.Screen name="Sobre" component={SobreScreen}/>
-      </Drawer.Navigator>
+        <Tab.Screen name="Home" component={HomeScreen}/>
+        <Tab.Screen name="Sobre" component={SobreScreen}/>
+      </Tab.Navigator>
     </NavigationContainer>
   )
 }
