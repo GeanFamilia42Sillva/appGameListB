@@ -1,17 +1,8 @@
 import { View, Text } from 'react-native' 
 import 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native'
-//import { createTabNavigator } from '@react-navigation/Tab'
-import { createBottomNavigator } from '@react-navigation/bottom-tabs'
-
-
-const HomeScreen = () => {
-  return(
-    <View>
-      <Text>Tela Home</Text>      
-    </View>
-  )
-}
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import  HomeScreen  from './src/screens/HomeScreen'
 
 const SobreScreen = () => {
   return(
@@ -20,23 +11,23 @@ const SobreScreen = () => {
     </View>
   )
 }
-const Tab = createTabNavigator()
+const Drawer = createDrawerNavigator()
 
 export default function App(){
   return(
     <NavigationContainer>
-      <Tab.Navigator 
+      <Drawer.Navigator 
         screenOptions={{
           headerStyle: {
             backgroundColor: '#1d3557'
           },
           headerTintColor: '#fff',
-          TabActiveTintColor: '#e66946'
+          DrawerActiveTintColor: '#e66946'
         }}
       >
-        <Tab.Screen name="Home" component={HomeScreen}/>
-        <Tab.Screen name="Sobre" component={SobreScreen}/>
-      </Tab.Navigator>
+        <Drawer.Screen name="Home" component={HomeScreen}/>
+        <Drawer.Screen name="Sobre" component={SobreScreen}/>
+      </Drawer.Navigator>
     </NavigationContainer>
   )
 }
